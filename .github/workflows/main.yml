@@ -15,7 +15,7 @@ jobs:
 
     # E. Build and Publish the Blazor WebAssembly App
     - name: Publish app
-      run: dotnet publish BlazorMatchGame.csproj -c Release -o release --nologo
+      run: dotnet publish BlazorMatchGame/BlazorMatchGame.csproj -c Release -o release --nologo
 
     # G. This step commits all files from the wwwroot folder to the gh-pages branch
     - name: GitHub Pages
