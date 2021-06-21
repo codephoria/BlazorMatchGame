@@ -16,6 +16,10 @@ jobs:
     # E. Build and Publish the Blazor WebAssembly App
     - name: Publish app
       run: dotnet publish BlazorMatchGame/BlazorMatchGame.csproj -c Release -o release --nologo
+      
+      # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
+    - name: Change base-tag in index.html from / to BlazorMatchGame
+      run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorMatchGame\/" \/>/g' release/wwwroot/index.html
 
     # G. This step commits all files from the wwwroot folder to the gh-pages branch
     - name: GitHub Pages
